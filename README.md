@@ -1,6 +1,6 @@
 # 项目介绍
 
-> 本项目主要采用 `Vue3.2` `Axios` `VueRouter` `TypeScript` `Vite` `Windicss` `NaiveUi` `Pinia`
+> 本项目主要采用 `Vue3.2` `Axios` `VueRouter` `TypeScript` `Vite` `Windicss` `NaiveUi` `Vuex`
 
 # 项目启动
 

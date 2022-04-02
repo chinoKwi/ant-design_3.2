@@ -6,8 +6,8 @@
     "build": "vue-tsc --noEmit && vite build",
     "lint": "vue-cli-service lint",
     "dev": "vite --host",
-    "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "preview": "vite preview"
   },
   "dependencies": {
     "ant-design-vue": "^2.2.8",
@@ -15,11 +15,11 @@
     "dayjs": "^1.11.0",
     "mitt": "^3.0.0",
     "nprogress": "^0.2.0",
-    "pinia": "^2.0.12",
     "vite": "^2.9.1",
     "vite-plugin-components": "^0.13.3",
     "vue": "^3.2.25",
     "vue-router": "^4.0.14",
+    "vuex": "^4.0.0",
     "windicss": "^3.5.0"
   },
   "devDependencies": {
@@ -31,6 +31,7 @@
     "@typescript-eslint/parser": "^5.15.0",
     "@vitejs/plugin-vue": "^2.2.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/eslint-config-standard": "^6.1.0",
     "cz-customizable": "^6.3.0",
     "eslint": "^7.32.0",

@@ -11,8 +11,8 @@ NProgress.configure({ showSpinner: false })
 
 /**
  * 请求失败后的错误统一处理
- * @param {Number} status 请求失败的状态码
- * @param {String} msg 消息
+ * @param { Number } status 请求失败的状态码
+ * @param { String } msg 消息
  */
 const errorHandle = (status: number, msg: string) => {
   // 状态码判断
