@@ -1,8 +1,13 @@
 import { createStore } from 'vuex'
-
+import Menu from './modules/menu'
+import Exclude from './modules/exclude'
 const store = createStore({
-  state: {
-    version: '1'
+  state: {},
+  mutations: {},
+  actions: {},
+  modules: {
+    Menu,
+    Exclude
   }
 })
 

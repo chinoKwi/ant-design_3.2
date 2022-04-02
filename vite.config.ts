@@ -24,6 +24,13 @@ export default defineConfig({
       resolvers: [AntDesignVueResolver()]
     })
   ],
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true
+      }
+    }
+  },
   assetsInclude: '',
   logLevel: 'info',
   clearScreen: true,
