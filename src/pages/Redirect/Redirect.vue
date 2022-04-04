@@ -1,10 +1,19 @@
+<template>
+  <div></div>
+</template>
 <script setup lang="ts">
-import { useRouter, useRoute } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
+import { push_route } from '@/utils'
+console.log('Redirect setup')
 const store = useStore()
 const route = useRoute()
-const router = useRouter()
-
 store.commit('Exclude/INIT_exclude')
-router.push('/' + route.query.to)
+const path = route.query.to as string
+push_route(path)
+</script>
+<script lang="ts">
+export default {
+  name: 'Redirect'
+}
 </script>

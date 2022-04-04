@@ -34,6 +34,9 @@ export default defineConfig({
   assetsInclude: '',
   logLevel: 'info',
   clearScreen: true,
+  server: {
+    hmr: { overlay: false }
+  },
   resolve: {
     alias: [{ find: '@', replacement: resolve(__dirname, 'src') }],
     conditions: [],

@@ -1,14 +1,13 @@
 const state = () => ({
-  exclude: ['Redirect']
+  exclude: ['Redirect', 'Welcome']
 })
 
 const mutations = {
   SET_exclude(state: any, data: any) {
-    // //console.log("SET_exclude");
     state.exclude.push(data)
   },
   INIT_exclude(state: any) {
-    state.exclude = ['Redirect']
+    state.exclude = ['Redirect', 'Welcome']
   }
 }
 
