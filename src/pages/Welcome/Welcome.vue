@@ -1,5 +1,5 @@
 <template>
-  <div>welcome</div>
+  <a-card class="w-full"> hello chino </a-card>
 </template>
 <script setup lang="ts">
 console.log('welcome setup')
