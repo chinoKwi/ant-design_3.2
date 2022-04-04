@@ -1,5 +1,5 @@
 const state = () => ({
-  exclude: ['Redirect', 'Welcome']
+  exclude: ['Redirect']
 })
 
 const mutations = {
@@ -7,7 +7,7 @@ const mutations = {
     state.exclude.push(data)
   },
   INIT_exclude(state: any) {
-    state.exclude = ['Redirect', 'Welcome']
+    state.exclude = ['Redirect']
   }
 }
 

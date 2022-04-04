@@ -157,6 +157,7 @@ watch(
   () => store.state.Menu.menu,
   (val) => {
     fomat_route(val)
+    add_pane(route.path.substr(1))
   },
   { immediate: true, deep: true }
 )

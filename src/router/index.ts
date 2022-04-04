@@ -51,8 +51,6 @@ router.beforeEach(async (to, from, next) => {
     if (store.state.Menu.menu && store.state.Menu.menu.length > 0) {
       next()
     } else {
-      console.log('添加路由')
-
       try {
         store.dispatch('Menu/FEACT_menu', [
           {
@@ -72,7 +70,6 @@ router.beforeEach(async (to, from, next) => {
           }
         ])
         next()
-        console.log('路由放行')
       } catch (error) {
         console.log('路由错误')
       }

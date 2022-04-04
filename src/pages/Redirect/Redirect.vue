@@ -5,7 +5,6 @@
 import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 import { push_route } from '@/utils'
-console.log('Redirect setup')
 const store = useStore()
 const route = useRoute()
 store.commit('Exclude/INIT_exclude')
