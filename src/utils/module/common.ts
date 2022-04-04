@@ -7,7 +7,5 @@ import router from '@/router'
  */
 export const push_route = (nowpath: string, topath: string) => {
   if (nowpath === topath) return
-  console.log('router', router)
-
   router.push(topath)
 }

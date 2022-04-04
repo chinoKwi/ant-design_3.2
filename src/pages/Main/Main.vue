@@ -48,38 +48,54 @@
       <!-- 右侧内容区域 -->
       <div class="right_content">
         <!-- Tab栏部分 -->
-        <div class="tab">tab</div>
+        <div class="tab"><MyTab /></div>
         <!-- 面包屑导航部分 -->
         <div class="navigation">navigation</div>
         <!-- 内容部分 -->
-        <div class="content">content</div>
+        <div class="content">
+          <RouterView />
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useStore } from 'vuex'
 import { useRoute } from 'vue-router'
 import { push_route } from '@/utils'
+import { IMenu } from '@/types/common'
+import MyTab from '@/pages/Main/components/Tab.vue'
 const store = useStore()
 const route = useRoute()
 
-const menu_list = store.state.Menu.menu // 菜单列表
-console.log(menu_list)
+const menu_list = ref<IMenu[]>([]) // 菜单列表
 
 const openKeys = ref([]) // 展开的菜单
 const selectedKeys = ref([]) // 当前选中的菜单项
 const collapsed = ref(false) // 是否收起
 
 interface IMenuClick {
+  domEvent: MouseEvent
   key: string
   keyPath: string[]
 }
+// 菜单点击
 const menu_click = (data: IMenuClick) => {
+  console.log('菜单点击', data)
   console.log(data.key, route)
   push_route(route.path, data.key)
 }
+
+// 监控菜单
+watch(
+  () => store.state.Menu.menu,
+  (val) => {
+    console.log('menu change', val)
+    menu_list.value = val
+  },
+  { immediate: true, deep: true }
+)
 </script>
 <style lang="less" scoped>
 .my_app {
@@ -98,6 +114,7 @@ const menu_click = (data: IMenuClick) => {
       background-color: #001529;
     }
     .right_content {
+      padding: 10px;
       flex: 1;
     }
   }

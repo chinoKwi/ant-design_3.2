@@ -1,4 +1,6 @@
+import store from '@/store'
 import { createRouter, createWebHashHistory } from 'vue-router'
+
 // 定义路由配置
 const constantRouterMap = [
   {
@@ -35,8 +37,7 @@ const router = createRouter({
   routes: constantRouterMap
 })
 
-// 配置 router 拦截
-// 前置
+// 前置 拦截
 router.beforeEach(async (to, from, next) => {
   const path = to.path.substr(1)
   window.localStorage.setItem('path', path)
@@ -44,15 +45,37 @@ router.beforeEach(async (to, from, next) => {
     next()
   } else {
     if (!window.localStorage.getItem('token')) {
-      return next({ path: '/login' })
-    } else {
-      // if (store.state.Menu.menu && store.state.Menu.menu.length > 0) {
-      //   next()
-      // } else {
-      //   await store.dispatch('Menu/FEACT_menu')
-      //   next()
-      // }
+      // return next({ path: '/login' })
+    }
+
+    if (store.state.Menu.menu && store.state.Menu.menu.length > 0) {
       next()
+    } else {
+      console.log('添加路由')
+
+      try {
+        store.dispatch('Menu/FEACT_menu', [
+          {
+            _id: '60dd203cd5e4a02a54085fc5',
+            path: 'father_api',
+            icon: 'user-outlined',
+            name: '用户中心',
+            children: [
+              {
+                _id: '60dd1f863648f041805b42c8',
+                path: 'hello',
+                icon: 'appstore-outlined',
+                name: 'Hello',
+                component: 'Hello'
+              }
+            ]
+          }
+        ])
+        next()
+        console.log('路由放行')
+      } catch (error) {
+        console.log('路由错误')
+      }
     }
   }
 })
