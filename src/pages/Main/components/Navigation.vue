@@ -44,6 +44,14 @@ const breadcrumb_change = () => {
 }
 
 watch(
+  () => store.state.Menu.menu,
+  () => {
+    breadcrumb_change()
+  },
+  { immediate: true, deep: true }
+)
+
+watch(
   () => route.path,
   () => {
     breadcrumb_change()
