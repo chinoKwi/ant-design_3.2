@@ -12,7 +12,7 @@
         <!-- Tab栏部分 -->
         <div class="tab"><MyTab /></div>
         <!-- 面包屑导航部分 -->
-        <div class="pl-10px pr-10px pb-10px">navigation</div>
+        <div class="pl-10px pr-10px pb-10px"><Navigation /></div>
         <!-- 内容部分 -->
         <div class="content pl-10px pr-10px">
           <router-view v-slot="{ Component }">
@@ -29,6 +29,7 @@
 import { useStore } from 'vuex'
 import Menu from './components/Menu.vue'
 import MyTab from '@/pages/Main/components/Tab.vue'
+import Navigation from './components/Navigation.vue'
 const store = useStore()
 </script>
 <style lang="less" scoped>

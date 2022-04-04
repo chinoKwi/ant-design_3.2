@@ -1,7 +1,7 @@
 <template>
   <a-tabs
     v-model:activeKey="activeKey"
-    :tabBarGutter="10"
+    :tabBarGutter="5"
     hide-add
     size="large"
     type="editable-card"
