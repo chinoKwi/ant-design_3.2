@@ -2,7 +2,7 @@
   <!-- LayOut -->
   <div class="my_app">
     <!-- 头部 -->
-    <header>12312</header>
+    <header><Heade /></header>
     <!-- 下部分 -->
     <div class="content">
       <!-- 左侧导航栏 -->
@@ -38,6 +38,7 @@ import { useRoute } from 'vue-router'
 import { IMenu } from '@/types/common'
 import Menu from './components/Menu.vue'
 import MyTab from '@/pages/Main/components/Tab.vue'
+import Heade from './components/Heade.vue'
 import Navigation from './components/Navigation.vue'
 
 const store = useStore()
@@ -68,9 +69,11 @@ watch(
   height: 100vh;
   overflow: hidden;
   header {
+    position: relative;
     width: 100%;
     height: 65px;
     background-color: #001529;
+    box-shadow: 0 3px 4px rgb(0 0 0 / 30%);
   }
   .content {
     display: flex;
