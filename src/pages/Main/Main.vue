@@ -6,13 +6,19 @@
     <!-- 下部分 -->
     <div class="content">
       <!-- 左侧导航栏 -->
-      <div class="left_menu"><Menu /></div>
+      <div class="left_menu">
+        <Menu />
+      </div>
       <!-- 右侧内容区域 -->
       <div class="right_content">
         <!-- Tab栏部分 -->
-        <div class="tab"><MyTab /></div>
+        <div class="tab">
+          <MyTab :watch_menu="watch_menu" :watch_path="watch_path" />
+        </div>
         <!-- 面包屑导航部分 -->
-        <div class="pl-10px pr-10px pb-10px"><Navigation /></div>
+        <div class="pl-10px pr-10px pb-10px">
+          <Navigation :watch_menu="watch_menu" :watch_path="watch_path" />
+        </div>
         <!-- 内容部分 -->
         <div class="content pl-10px pr-10px">
           <router-view v-slot="{ Component }">
@@ -26,11 +32,35 @@
   </div>
 </template>
 <script setup lang="ts">
+import { ref, watch } from 'vue'
 import { useStore } from 'vuex'
+import { useRoute } from 'vue-router'
+import { IMenu } from '@/types/common'
 import Menu from './components/Menu.vue'
 import MyTab from '@/pages/Main/components/Tab.vue'
 import Navigation from './components/Navigation.vue'
+
 const store = useStore()
+const route = useRoute()
+
+const watch_menu = ref<IMenu[]>([])
+const watch_path = ref<string>('')
+
+// 监控菜单
+watch(
+  () => store.state.Menu.menu,
+  (val) => {
+    watch_menu.value = val
+  },
+  { immediate: true, deep: true }
+)
+// 监控路由
+watch(
+  () => route.path,
+  (val) => {
+    watch_path.value = val
+  }
+)
 </script>
 <style lang="less" scoped>
 .my_app {

@@ -60,7 +60,11 @@ const actions = {
   }
 }
 
-const getters = {}
+const getters = {
+  GET_menu(state: { menu: IMenu[] }) {
+    return state.menu
+  }
+}
 
 export default {
   namespaced: true,

@@ -48,7 +48,7 @@ router.beforeEach(async (to, from, next) => {
       // return next({ path: '/login' })
     }
 
-    if (store.state.Menu.menu && store.state.Menu.menu.length > 0) {
+    if (store.getters['Menu/GET_menu'].length > 0) {
       next()
     } else {
       try {
