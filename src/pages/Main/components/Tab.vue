@@ -77,7 +77,8 @@ watch(
   (val) => {
     set_path(val)
     add_pane(val.substr(1))
-  }
+  },
+  { immediate: true }
 )
 </script>
 <style lang="less" scoped>
