@@ -1,8 +1,11 @@
 <template>
-  <a-card class="w-full"> hello chino aaa</a-card>
+  <a-card class="w-full">
+    <h1>hello chino</h1>
+    <a-button @click="checkToken">check token</a-button>
+  </a-card>
 </template>
 <script setup lang="ts">
-console.log('welcome setup')
+import { checkToken } from '@/api/user'
 </script>
 <script lang="ts">
 export default {

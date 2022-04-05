@@ -20,7 +20,7 @@ const errorHandle = (status: number, msg: string) => {
     case 401: // 登录失效
       window.$message.error(msg)
       window.localStorage.removeItem('token') // 移除token
-      router.replace({ path: '/Login' })
+      router.replace({ path: '/login' })
       return
     default:
       window.$message.error(msg)
