@@ -1,4 +1,5 @@
 import store from '@/store'
+import routes_list from '@/assets/js/routes'
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 // 定义路由配置
@@ -52,23 +53,7 @@ router.beforeEach(async (to, from, next) => {
       next()
     } else {
       try {
-        store.dispatch('Menu/FEACT_menu', [
-          {
-            _id: '60dd203cd5e4a02a54085fc5',
-            path: 'father_api',
-            icon: 'user-outlined',
-            name: '用户中心',
-            children: [
-              {
-                _id: '60dd1f863648f041805b42c8',
-                path: 'hello',
-                icon: 'appstore-outlined',
-                name: 'Hello',
-                component: 'Hello'
-              }
-            ]
-          }
-        ])
+        store.dispatch('Menu/FEACT_menu', routes_list)
         next()
       } catch (error) {
         console.log('路由错误')

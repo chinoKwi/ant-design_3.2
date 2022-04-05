@@ -22,9 +22,7 @@
       <!-- 一级菜单 -->
       <template v-if="!item.children">
         <a-menu-item :key="item.path">
-          <template #icon>
-            <PieChartOutlined />
-          </template>
+          <template #icon> <renderIcon :name="item.icon" /> </template>
           {{ item.name }}
         </a-menu-item>
       </template>
@@ -32,7 +30,7 @@
       <template v-else>
         <a-sub-menu :key="item.path">
           <template #icon>
-            <PieChartOutlined />
+            <renderIcon :name="item.icon" />
           </template>
           <template #title>{{ item.name }}</template>
           <a-menu-item v-for="child in item.children" :key="child.path">
