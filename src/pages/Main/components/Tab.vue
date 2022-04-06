@@ -28,10 +28,10 @@
     <!-- TODO:迁移V3版本注意此处更名 -->
     <template #tabBarExtraContent>
       <a-dropdown>
-        <a class="ant-dropdown-link" @click.prevent>
+        <span class="ant-dropdown-link cursor-pointer" @click.prevent>
           操作
           <DownOutlined />
-        </a>
+        </span>
         <template #overlay>
           <a-menu @click="menu_click">
             <a-menu-item key="1"> 关闭其他 </a-menu-item>
