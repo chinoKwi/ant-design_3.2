@@ -94,6 +94,8 @@ watch(
     .right_content {
       flex: 1;
       background-color: #f0f2f5;
+      width: 100%;
+      overflow: hidden;
       .tab {
         background-color: #ffffff;
         padding: 10px 10px 0px 10px;
