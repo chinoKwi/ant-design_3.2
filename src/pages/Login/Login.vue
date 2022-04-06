@@ -42,22 +42,9 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, reactive, UnwrapRef } from 'vue'
-interface IuserInput {
-  id: string
-  password: string
-}
+import { ref } from 'vue'
+import { loading, userInput, rules } from './hooks/useForm'
 const formRef = ref()
-const loading = ref(false)
-const userInput: UnwrapRef<IuserInput> = reactive({
-  id: '',
-  password: ''
-})
-
-const rules = {
-  id: [{ required: true, message: '请填写账号', trigger: 'blur' }],
-  password: [{ required: true, message: '请填写密码', trigger: 'blur' }]
-}
 
 // 校验表单
 const check_form = async () => {
