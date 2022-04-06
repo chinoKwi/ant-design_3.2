@@ -1,7 +1,7 @@
 <template>
-  <div>hello every body</div>
+  <a-card class="w-full">hello every body</a-card>
 </template>
-<script>
+<script lang="ts">
 export default {
   name: 'Hello',
   setup() {
