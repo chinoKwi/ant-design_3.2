@@ -53,7 +53,7 @@ router.beforeEach(async (to, from, next) => {
       next()
     } else {
       try {
-        store.dispatch('Menu/FEACT_menu', routes_list)
+        await store.dispatch('Menu/FEACT_menu', routes_list)
         next()
       } catch (error) {
         console.log('路由错误')

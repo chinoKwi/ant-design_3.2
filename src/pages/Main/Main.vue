@@ -21,25 +21,21 @@
         </div>
         <!-- 内容部分 -->
         <div class="content pl-10px pr-10px">
-          <transition
-            appear
-            mode="out-in"
-            enter-active-class="animated slideInRight"
-            leave-active-class="animated fadeOutDown"
-            :duration="{ enter: 500, leave: 0 }"
+          <router-view
+            v-slot="{ Component }"
+            style="-webkit-animation-duration: 300ms; animation-duration: 300ms"
           >
-            <router-view
-              v-slot="{ Component }"
-              style="
-                -webkit-animation-duration: 600ms;
-                animation-duration: 600ms;
-              "
+            <transition
+              appear
+              mode="out-in"
+              enter-active-class="animated slideInRight"
+              leave-active-class="animated fadeOutDown"
             >
               <keep-alive :exclude="store.state.Exclude.exclude">
                 <component :is="Component" />
               </keep-alive>
-            </router-view>
-          </transition>
+            </transition>
+          </router-view>
         </div>
       </div>
     </div>
