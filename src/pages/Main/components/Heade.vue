@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-between pl-20px pr-20px items-center h-full">
-    <Logo />
+    <Logo @click.prevent="push_route('/welcome')" />
     <div class="user_header">
       <a-dropdown>
         <a-avatar
@@ -17,6 +17,7 @@
   </div>
 </template>
 <script setup lang="ts">
+import { push_route } from '@/utils'
 import Logo from '@/components/Logo.vue'
 const handleMenuClick = () => {}
 </script>
