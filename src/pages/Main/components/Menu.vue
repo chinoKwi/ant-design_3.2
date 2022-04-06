@@ -37,7 +37,7 @@
             <!-- <template #icon>
                     <PieChartOutlined />
                   </template> -->
-            {{ item.name }}
+            {{ child.name }}
           </a-menu-item>
         </a-sub-menu>
       </template>
