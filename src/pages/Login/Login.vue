@@ -4,7 +4,7 @@
       <div class="title">RABBIT API</div>
       <a-form :rules="rules" ref="formRef" :model="userInput">
         <!-- 账号 -->
-        <a-form-item name="id">
+        <a-form-item name="id" class="mb-10px">
           <a-input
             v-model:value="userInput.id"
             placeholder="请输入账号"
@@ -31,7 +31,7 @@
         <a-form-item>
           <a-button
             :loading="loading"
-            class="w-full"
+            class="w-full mt-10px"
             type="primary"
             @click="on_submit"
             >登 录</a-button
@@ -73,10 +73,11 @@ const on_submit = async () => {
     font-size: 20px;
     margin-bottom: 30px;
     font-weight: bold;
+    color: #545456;
   }
   .login_area {
     width: 100%;
-    max-width: 700px;
+    max-width: 600px;
     padding: 0px 10px;
   }
 }
