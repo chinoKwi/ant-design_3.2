@@ -39,7 +39,7 @@ interface PendingType {
 const pending: Array<PendingType> = []
 const CancelToken = axios.CancelToken
 
-const removePending = (config: AxiosRequestConfig, showMeg?: Boolean) => {
+const removePending = (config: AxiosRequestConfig) => {
   for (const key in pending) {
     const item: number = +key
     const list: PendingType = pending[key]
@@ -49,10 +49,7 @@ const removePending = (config: AxiosRequestConfig, showMeg?: Boolean) => {
       JSON.stringify(list.params) === JSON.stringify(config.params) &&
       JSON.stringify(list.data) === JSON.stringify(config.data)
     ) {
-      if (showMeg === true) {
-        window.$message.error('操作太频繁! 请稍后再试')
-        list.cancel('关闭请求')
-      }
+      list.cancel('请勿频繁操作')
       pending.splice(item, 1)
     }
   }
@@ -70,7 +67,7 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   (config) => {
-    removePending(config, true)
+    removePending(config)
     config.cancelToken = new CancelToken((c) => {
       pending.push({
         url: config.url,
@@ -120,6 +117,9 @@ instance.interceptors.response.use(
         data: {}
       }
     } else {
+      if (error.message) {
+        return window.$message.error(error.message)
+      }
       // 处理断网的情况
       window.$message.error('网络错误')
       NProgress.done()
