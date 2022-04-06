@@ -122,6 +122,7 @@ instance.interceptors.response.use(
     } else {
       // 处理断网的情况
       window.$message.error('网络错误')
+      NProgress.done()
     }
   }
 )
