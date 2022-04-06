@@ -95,7 +95,10 @@ watch(
       flex: 1;
       background-color: #f0f2f5;
       width: 100%;
-      overflow: hidden;
+      height: calc(100vh - 65px);
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding-bottom: 20px;
       .tab {
         background-color: #ffffff;
         padding: 10px 10px 0px 10px;
