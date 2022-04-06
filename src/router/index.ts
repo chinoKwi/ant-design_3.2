@@ -39,7 +39,7 @@ const router = createRouter({
 })
 
 // 前置 拦截
-router.beforeEach(async (to, from, next) => {
+router.beforeEach((to, from, next) => {
   const path = to.path.substr(1)
   window.localStorage.setItem('path', path)
   if (path === 'login') {
@@ -53,8 +53,9 @@ router.beforeEach(async (to, from, next) => {
       next()
     } else {
       try {
-        await store.dispatch('Menu/FEACT_menu', routes_list)
-        next()
+        store.dispatch('Menu/FEACT_menu', routes_list).then(() => {
+          next({ path: path })
+        })
       } catch (error) {
         console.log('路由错误')
       }
