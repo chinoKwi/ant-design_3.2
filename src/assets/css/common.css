@@ -101,3 +101,8 @@ body,
 svg {
   vertical-align: baseline;
 }
+
+.ant-table-body {
+  width: 100%;
+  overflow: auto;
+}
