@@ -26,21 +26,34 @@ const breadcrumb_change = () => {
   store.state.Menu.menu.forEach((ele: IMenu) => {
     const now_father = ele // 当前父元素
     if (ele.path === route_path) {
+      clear_breadcrumb(now_father)
       // 一级菜单匹配
-      breadcrumb_sub1.value = now_father.name
-      breadcrumb_sub2.value = ''
+      setTimeout(() => {
+        breadcrumb_sub1.value = now_father.name
+        breadcrumb_sub2.value = ''
+      }, 0)
     } else {
       if (ele.children && ele.children.length > 0) {
         ele.children.forEach((childele) => {
           if (childele.path === route_path) {
+            clear_breadcrumb(now_father)
             // 子路由匹配搭到
-            breadcrumb_sub1.value = now_father.name
-            breadcrumb_sub2.value = childele.name
+            setTimeout(() => {
+              breadcrumb_sub1.value = now_father.name
+              breadcrumb_sub2.value = childele.name
+            }, 0)
           }
         })
       }
     }
   })
+}
+
+const clear_breadcrumb = (now_father: IMenu) => {
+  if (breadcrumb_sub1.value !== now_father.name) {
+    breadcrumb_sub1.value = ''
+  }
+  breadcrumb_sub2.value = ''
 }
 
 watch(
