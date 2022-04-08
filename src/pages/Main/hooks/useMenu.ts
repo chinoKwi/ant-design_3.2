@@ -29,7 +29,11 @@ export const select_menu = () => {
         if (child.path === path) {
           // 子元素匹配
           selectedKeys.value = [path]
-          openKeys.value = [ele.path]
+          if (!collapsed.value) {
+            openKeys.value = [ele.path]
+          } else {
+            openKeys.value = []
+          }
         }
       })
     }

@@ -87,6 +87,16 @@ watch(
     select_menu()
   }
 )
+
+// 监控是否收起菜单
+watch(
+  () => collapsed.value,
+  (val) => {
+    if (!val) {
+      select_menu()
+    }
+  }
+)
 </script>
 <style lang="less" scoped>
 .menu_off_area {
