@@ -88,8 +88,10 @@ watch(
   .content {
     display: flex;
     .left_menu {
-      min-height: calc(100vh - 65px);
+      height: calc(100vh - 65px);
+      overflow-y: auto;
       background-color: #001529;
+      padding-bottom: 65px;
     }
     .right_content {
       flex: 1;
