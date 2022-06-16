@@ -31,18 +31,29 @@ const actions = {
       context.commit('SET_menu', all_menu_list)
 
       menu_data.forEach((ele) => {
-        ele.children?.forEach((child_ele) => {
+        if (ele.children && ele.children.length) {
+          ele.children?.forEach((child_ele) => {
+            router.addRoute('Main', {
+              path: child_ele.path,
+              component: () =>
+                import(
+                  `../../pages/${child_ele.component}/${child_ele.component}.vue`
+                ),
+              meta: {
+                meta: { needLogin: true }
+              }
+            })
+          })
+        } else {
           router.addRoute('Main', {
-            path: child_ele.path,
+            path: ele.path,
             component: () =>
-              import(
-                `../../pages/${child_ele.component}/${child_ele.component}.vue`
-              ),
+              import(`../../pages/${ele.component}/${ele.component}.vue`),
             meta: {
               meta: { needLogin: true }
             }
           })
-        })
+        }
       })
       router.addRoute({
         path: '/:pathMatch(.*)',
