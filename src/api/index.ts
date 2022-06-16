@@ -108,6 +108,7 @@ instance.interceptors.response.use(
   (error) => {
     console.log('响应出错', error)
     // 请求失败
+    NProgress.done()
     const { response } = error
     if (response) {
       removePending(response.config)
@@ -122,7 +123,6 @@ instance.interceptors.response.use(
       }
       // 处理断网的情况
       window.$message.error('网络错误')
-      NProgress.done()
     }
   }
 )
