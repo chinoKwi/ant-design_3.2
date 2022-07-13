@@ -1,19 +1,39 @@
 <template>
-  <!-- <keep-alive> -->
-  <a-config-provider>
-    <RouterView />
+  <a-config-provider :locale="zhCN">
+    <a-spin
+      :spinning="globalLoading"
+      tip="请稍后, 路由加载中..."
+      size="large"
+      wrapperClassName="globalLoadingCss"
+    >
+      <ChangeTheme />
+      <RouterView />
+    </a-spin>
   </a-config-provider>
-  <!-- </keep-alive> -->
-  <!-- <router-view v-slot="{ Component }">
-    <keep-alive :exclude="store.state.Exclude.exclude">
-      <component :is="Component" />
-    </keep-alive>
-  </router-view> -->
 </template>
 
 <script setup lang="ts">
-// import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN'
-// :locale="zhCN"
-// import { useStore } from 'vuex'
-// const store = useStore()
+import 'moment/dist/locale/zh-cn'
+import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN'
+import { globalLoading } from '@/utils'
+import ChangeTheme from '@/components/ChangeTheme/index.vue'
+// @ts-ignore
+import { toggleTheme } from '@zougt/vite-plugin-theme-preprocessor/dist/browser-utils.js'
+
+window.$emitter.on('change_theme', (theme: string) => {
+  console.log('切换主题为', theme)
+
+  toggleTheme({
+    scopeName: theme
+  })
+})
 </script>
+<style lang="less">
+.globalLoadingCss {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+</style>

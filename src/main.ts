@@ -16,7 +16,7 @@ import mitt from 'mitt'
 
 // Antd
 import Antd, { message } from 'ant-design-vue'
-import 'ant-design-vue/dist/antd.css'
+import 'ant-design-vue/dist/antd.less'
 
 // ICON
 import * as Icons from '@ant-design/icons-vue'

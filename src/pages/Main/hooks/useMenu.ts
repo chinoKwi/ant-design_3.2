@@ -21,7 +21,7 @@ export const select_menu = () => {
     if (ele.path === path) {
       // 选中的一级菜单
       selectedKeys.value = [path]
-      openKeys.value = []
+      // openKeys.value = []
       return
     }
     if (ele.children) {
@@ -30,9 +30,10 @@ export const select_menu = () => {
           // 子元素匹配
           selectedKeys.value = [path]
           if (!collapsed.value) {
-            openKeys.value = [ele.path]
+            openKeys.value.push(ele.path)
+            // openKeys.value = [ele.path]
           } else {
-            openKeys.value = []
+            // openKeys.value = []
           }
         }
       })

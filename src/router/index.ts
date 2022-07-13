@@ -1,6 +1,7 @@
 import store from '@/store'
 import routes_list from '@/assets/js/routes'
 import { createRouter, createWebHashHistory } from 'vue-router'
+import { globalLoading } from '@/utils'
 
 // 定义路由配置
 const constantRouterMap = [
@@ -41,6 +42,7 @@ const router = createRouter({
 // 前置 拦截
 router.beforeEach((to, from, next) => {
   const path = to.path.substr(1)
+  globalLoading.value = true
   window.localStorage.setItem('path', path)
   if (path === 'login') {
     next()
@@ -61,6 +63,10 @@ router.beforeEach((to, from, next) => {
       }
     }
   }
+})
+
+router.afterEach((to, from, next) => {
+  globalLoading.value = false
 })
 
 export default router

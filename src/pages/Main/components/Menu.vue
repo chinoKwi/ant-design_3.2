@@ -8,6 +8,7 @@
     :inlineIndent="24"
     :inline-collapsed="collapsed"
     :style="collapsed ? '' : 'width: 190px'"
+    class="menu"
   >
     <div
       @click="collapsed = !collapsed"
@@ -104,7 +105,7 @@ watch(
   position: fixed;
   bottom: 0px;
   height: 50px;
-  background-color: #002952;
+  background-color: @menu_bottom_bg;
   padding: 0px 32px;
   font-size: 16px;
   display: flex;
@@ -114,5 +115,10 @@ watch(
 }
 .menu_off_area:hover {
   background-color: #004081;
+}
+.menu {
+  :deep(.ant-menu-submenu > .ant-menu-sub) {
+    background-color: @menu_sub_bg;
+  }
 }
 </style>

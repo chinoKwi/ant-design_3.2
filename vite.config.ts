@@ -8,6 +8,11 @@ import WindiCSS from 'vite-plugin-windicss'
 // ESLint
 import eslintPlugin from 'vite-plugin-eslint'
 
+import importToCDN from 'vite-plugin-cdn-import'
+import vueSetupExtend from 'vite-plugin-vue-setup-extend-plus'
+
+import themePreprocessorPlugin from '@zougt/vite-plugin-theme-preprocessor'
+
 const { resolve } = require('path')
 
 export default defineConfig({
@@ -16,12 +21,51 @@ export default defineConfig({
   plugins: [
     vue(),
     WindiCSS(),
+    vueSetupExtend(),
     eslintPlugin({
       exclude: ['./node_modules', './dist'],
       cache: false
     }),
     Components({
-      resolvers: [AntDesignVueResolver()]
+      resolvers: [AntDesignVueResolver()],
+      directoryAsNamespace: true
+    }),
+    themePreprocessorPlugin({
+      less: {
+        multipleScopeVars: [
+          {
+            scopeName: 'theme-default',
+            path: resolve('src/theme/default.less')
+          },
+          { scopeName: 'theme-dark', path: resolve('src/theme/dark.less') }
+        ],
+        defaultScopeName: 'theme-default',
+        extract: false
+      }
+    }),
+    importToCDN({
+      modules: [
+        {
+          name: 'vue',
+          var: 'Vue',
+          path: 'https://unpkg.com/vue@3.2.25'
+        },
+        {
+          name: 'vuex',
+          var: 'Vuex',
+          path: 'https://unpkg.com/vuex@4.0.0'
+        },
+        {
+          name: 'vue-router',
+          var: 'VueRouter',
+          path: 'https://unpkg.com/vue-router@4.0.14'
+        },
+        {
+          name: 'axios',
+          var: 'axios',
+          path: 'https://unpkg.com/axios@0.26.1'
+        }
+      ]
     })
   ],
   css: {
@@ -53,7 +97,12 @@ export default defineConfig({
     commonjsOptions: {},
     manifest: false,
     minify: 'terser',
-    terserOptions: {},
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    },
     write: true,
     emptyOutDir: true,
     brotliSize: true,

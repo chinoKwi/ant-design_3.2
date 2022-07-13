@@ -9,6 +9,7 @@
             v-model:value="userInput.id"
             placeholder="请输入账号"
             :disabled="loading"
+            @keyup.enter="on_submit"
           >
             <template #prefix>
               <UserOutlined />
@@ -21,6 +22,7 @@
             v-model:value="userInput.password"
             placeholder="请输入密码"
             :disabled="loading"
+            @keyup.enter="on_submit"
           >
             <template #prefix>
               <LockOutlined />

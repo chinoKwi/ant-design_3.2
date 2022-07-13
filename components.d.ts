@@ -17,9 +17,11 @@ declare module 'vue' {
     AInputPassword: typeof import('ant-design-vue/es')['InputPassword']
     AMenu: typeof import('ant-design-vue/es')['Menu']
     AMenuItem: typeof import('ant-design-vue/es')['MenuItem']
+    ASpin: typeof import('ant-design-vue/es')['Spin']
     ASubMenu: typeof import('ant-design-vue/es')['SubMenu']
     ATabPane: typeof import('ant-design-vue/es')['TabPane']
     ATabs: typeof import('ant-design-vue/es')['Tabs']
+    ChangeTheme: typeof import('./src/components/ChangeTheme/index.vue')['default']
     Logo: typeof import('./src/components/Logo.vue')['default']
     RenderIcon: typeof import('./src/components/renderIcon.vue')['default']
   }

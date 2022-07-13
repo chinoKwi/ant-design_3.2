@@ -82,7 +82,7 @@ watch(
     position: relative;
     width: 100%;
     height: 65px;
-    background-color: #001529;
+    background-color: @menu_bg;
     box-shadow: 0 3px 4px rgb(0 0 0 / 30%);
   }
   .content {
@@ -90,19 +90,19 @@ watch(
     .left_menu {
       height: calc(100vh - 65px);
       overflow-y: auto;
-      background-color: #001529;
+      background-color: @menu_bg;
       padding-bottom: 65px;
     }
     .right_content {
       flex: 1;
-      background-color: #f0f2f5;
+      background-color: @right_content_bg;
       width: 100%;
       height: calc(100vh - 65px);
       overflow-x: hidden;
       overflow-y: auto;
       padding-bottom: 20px;
       .tab {
-        background-color: #ffffff;
+        background-color: @right_content_tab_bg;
         padding: 10px 10px 0px 10px;
         margin-bottom: 10px;
       }
