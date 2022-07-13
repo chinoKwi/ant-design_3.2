@@ -23,11 +23,13 @@ const handleClick = (data: IMenuClick) => {
 <style lang="less" scoped>
 .change_theme {
   position: fixed;
+  z-index: 999;
   bottom: 100px;
   right: 40px;
 }
 .avatar {
   padding: 10px;
   background-color: #fff !important;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 }
 </style>
