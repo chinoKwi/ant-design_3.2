@@ -68,14 +68,14 @@ const on_submit = async () => {
 .login_warp {
   width: 100vw;
   height: 100vh;
-  background-color: #f0f2f5;
+  background-color: @right_content_bg;
   .title {
     font-size: 30px !important;
     text-align: center;
     font-size: 20px;
     margin-bottom: 30px;
     font-weight: bold;
-    color: #545456;
+    color: @login_title_color;
   }
   .login_area {
     width: 100%;

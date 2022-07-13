@@ -3,10 +3,7 @@
     <Logo @click.prevent="push_route('/welcome')" />
     <div class="user_header">
       <a-dropdown>
-        <a-avatar
-          :size="50"
-          src="https://cdn.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/02/18/620f1935f139c.jpg"
-        />
+        <a-avatar :size="50" src="https://joeschmoe.io/api/v1/random" />
         <template #overlay>
           <a-menu @click="handleMenuClick">
             <a-menu-item key="1">退出登录</a-menu-item>
