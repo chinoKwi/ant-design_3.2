@@ -6,7 +6,7 @@
       size="large"
       wrapperClassName="globalLoadingCss"
     >
-      <ChangeTheme />
+      <ChangeTheme v-if="config.change_theme" />
       <RouterView />
     </a-spin>
   </a-config-provider>
@@ -15,12 +15,14 @@
 <script setup lang="ts">
 import 'moment/dist/locale/zh-cn'
 import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN'
-import { globalLoading } from '@/utils'
 import ChangeTheme from '@/components/ChangeTheme/index.vue'
 // @ts-ignore
 import { toggleTheme } from '@zougt/vite-plugin-theme-preprocessor/dist/browser-utils.js'
+import { globalLoading } from '@/utils'
+import config from '@/utils/config'
 
 window.$emitter.on('change_theme', (theme: string) => {
+  if (!config.change_theme) return
   console.log('切换主题为', theme)
 
   toggleTheme({
