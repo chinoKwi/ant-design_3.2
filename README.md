@@ -1,4 +1,4 @@
-# Vue + TS + AntD 后台管理系统框架
+# Vue + TS + AntD 后台管理系统框架 + 提交规范约束(Angular)
 # 作者: Chino 2084049306@qq.com
 
 # 技术栈
