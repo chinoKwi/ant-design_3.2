@@ -15,7 +15,7 @@ import '@/assets/css/animation.css'
 import mitt from 'mitt'
 
 // Antd
-import Antd, { message } from 'ant-design-vue'
+import { message } from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.less'
 
 // ICON
@@ -27,7 +27,7 @@ window.$message = message
 const emitter = mitt()
 window.$emitter = emitter
 
-const app = createApp(App).use(store).use(router).use(Antd)
+const app = createApp(App).use(store).use(router)
 // 获取原型
 const prototype = app.config.globalProperties
 // 绑定参数
